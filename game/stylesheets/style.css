@@ -1,0 +1,17 @@
+/* Tag Styles */
+body{
+    background-color: black;
+}
+
+
+
+
+/* Class Styles */
+.index{
+    background-image: url('../assets/wallpaperflare.com_wallpaper.jpg');
+    background-repeat: no-repeat;
+    background-size: 2500px 420%;
+    
+}
+
+/* ID Styles */
