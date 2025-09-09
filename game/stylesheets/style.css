@@ -1,35 +1,54 @@
 /* Tag Styles */
 body{
     background-color: black;
+    color: #4dff00;
+    font-family: "Audiowide";
+    padding: 1%;
 }
 
 h1{
     font-family: "Rubik Glitch";
+    font-size: 60px;
 }
 
 button{
     background-color: black;
     border-color: #4dff00;
-    width: 15%;
-    height: 10%;
+    width: 200px;
+    height: 100px;
     color: #4dff00;
     font-family: "Audiowide";
     font-size: medium;
 }
 
-
-
 /* Class Styles */
-.index{
-    background-image: url('../assets/wallpaperflare.com_wallpaper.jpg');
-    background-repeat: no-repeat;
-    background-size: 2500px 430%;
-    
-}
 .textbox{
     background-color: rgba(0, 0, 0, 0.5);
     color: #4dff00;
     font-family: "Audiowide";
 }
-/* ID Styles */
 
+.charbox{
+    border: 7px ridge #4dff00 ;
+    padding: 2%;
+    width: 28%;
+    background-color: rgba(0, 0, 0, 0.845);
+}
+
+
+/* ID Styles */
+#index{
+    background-image: url('../assets/wallpaperflare.com_wallpaper.jpg');
+    background-repeat: no-repeat;
+    background-size: 2500px 430%;
+    
+}
+#starter{
+    background-image: url("../assets/dumbHacker.gif");
+    background-size: 25%;
+    border: 10px #4dff00;
+}
+#pickCharacter{
+    display: flex;
+    justify-content: space-between;
+}
