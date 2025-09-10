@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Lockbox</title>
+    <link rel="icon" href="../assets/Merlin2525-Futuristic-Gun-3175454871.png">
+    <link rel="stylesheet" href="../stylesheets/style.css">
+  </head>
+  <body>
+    <h1>Lockbox</h1>
+    <img src="/game/assets/lockbox_inside.png" alt="Shop Interior" width="1000">
+
+    <p>You found a hidden lockbox. It contains <strong>20 CR</strong>.</p>
+    <button id="takeCR">Take the 20 CR</button>
+
+    <p style="margin-top:1rem">
+      <a href="hideout.html">Back to Hideout</a>
+    </p>
+
+    <!-- Stats API goes here -->
+    <!-- (Paste the shared Stats API script block from section 0 here) -->
+
+    <script>
+      // One-time claim control
+      const CLAIM_KEY = 'fc_lockbox_claimed';
+
+      function updateButtonState() {
+        const claimed = localStorage.getItem(CLAIM_KEY) === '1';
+        const btn = document.getElementById('takeCR');
+        btn.disabled = claimed;
+        btn.textContent = claimed ? 'Already Claimed' : 'Take the 20 CR';
+      }
+
+      document.getElementById('takeCR').addEventListener('click', () => {
+        const claimed = localStorage.getItem(CLAIM_KEY) === '1';
+        if (claimed) {
+          alert('You already claimed these credits.');
+          return;
+        }
+        const s = getStats();
+        const newCr = (s.cr || 0) + 20;
+        setStats({ ...s, cr: newCr });
+        localStorage.setItem(CLAIM_KEY, '1');
+        updateButtonState();
+        alert(`+20 CR added. You now have ${newCr} CR.`);
+      });
+
+      document.addEventListener('DOMContentLoaded', updateButtonState);
+    </script>
+  </body>
+</html>

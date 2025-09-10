@@ -1,17 +1,60 @@
+<!DOCTYPE html>
 <html>
-    <head>
-        <title> Future Cycle </title>
-        <link rel="icon" href="../assets/Merlin2525-Futuristic-Gun-3175454871.png">
+  <head>
+    <title>Future Cycle</title>
+    <link rel="icon" href="../assets/Merlin2525-Futuristic-Gun-3175454871.png">
+    <link rel="stylesheet" href="../stylesheets/style.css">
+    <style>
+      #hud{position:fixed;top:10px;right:10px;background:#111a;border:1px solid #444;padding:.5rem .75rem;border-radius:.5rem;font-family:monospace}
+      .items{margin:1rem 0}
+      button{cursor:pointer}
+    </style>
+  </head>
+  <body>
+    <h1>Plaza</h1>
+    <div id="hud"></div>
 
-    </head>
-    <body>
-        <h1> Plaza </h1>
-        <hr>
-        <img src="/game/assets/cyberpunk_plaza.png" alt="CyperPlaza" width="1000">
-        <p> Welcome to the shop! Its dangrous out there. Choose your weapon wisely </p>
-        <h4> Choose your route!!</h4>
-        <div>
-            <a href="downtown.html">Go Back to the Downtown area</a>
-        </div>
-    </body>
+    <hr>
+    <img src="/game/assets/cyberpunk_plaza.png" alt="CyberPlaza" width="1000">
+    <p>Get something to increase your overall strength or health!</p>
+
+    <div class="items">
+      <button id="buyMedkit">Buy Medkit (+5 HP)</button>
+    </div>
+
+    <div>
+      <a id="backDowntown" href="downtown.html">Go Back to the Downtown area</a>
+    </div>
+
+    <script>
+      // Parse stats
+      const params = new URLSearchParams(location.search);
+      let cr  = +params.get('cr')  || 0;
+      let hp  = +params.get('hp')  || 0;
+      let str = +params.get('str') || 0;
+      let tch = +params.get('tch') || 0;
+
+      // HUD
+      const hud = document.getElementById('hud');
+      function updateHUD(){ hud.textContent = `CR:${cr}  HP:${hp}  STR:${str}  TECH:${tch}`; }
+      updateHUD();
+
+      // Propagate initial stats to back link
+      function applyParamsToLink(el){
+        const qs = `?cr=${cr}&hp=${hp}&str=${str}&tch=${tch}`;
+        const href = el.getAttribute('href') || '';
+        el.setAttribute('href', href + (href.includes('?') ? '&' : '?') + qs.slice(1));
+      }
+      const back = document.getElementById('backDowntown');
+      applyParamsToLink(back);
+
+      // Buy Medkit: increase HP and update link + HUD
+      document.getElementById('buyMedkit').addEventListener('click', () => {
+        hp += 5;
+        updateHUD();
+        applyParamsToLink(back);
+        alert(`Purchased Medkit. HP is now ${hp}.`);
+      });
+    </script>
+  </body>
 </html>
