@@ -7,6 +7,7 @@ body{
 }
 
 h1{
+    background-color: rgba(0, 0, 0, 0.504);
     font-family: "Rubik Glitch";
     font-size: 60px;
 }
@@ -21,11 +22,20 @@ button{
     font-size: medium;
 }
 
+img{
+    border: 2px ridge;
+    background-color: black;
+}
+
+
+
 /* Class Styles */
 .textbox{
     background-color: rgba(0, 0, 0, 0.5);
     color: #4dff00;
     font-family: "Audiowide";
+    display: grid;
+    justify-items: center;
 }
 
 .charbox{
@@ -33,6 +43,8 @@ button{
     padding: 2%;
     width: 28%;
     background-color: rgba(0, 0, 0, 0.845);
+    display: grid;
+    justify-items: center;
 }
 
 
@@ -41,7 +53,8 @@ button{
     background-image: url('../assets/wallpaperflare.com_wallpaper.jpg');
     background-repeat: no-repeat;
     background-size: 2500px 430%;
-    
+    display: flex;
+    justify-content: center;;
 }
 #starter{
     background-image: url("../assets/dumbHacker.gif");
