@@ -16,7 +16,6 @@
     <h1>Where should we get started?</h1>
     <div id="hud"></div>
 
-<<<<<<< HEAD
         <!-- Text Font -->
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -33,36 +32,6 @@
         downtown.href     += location.search
         corp.href     += location.search
         hideout.href    += location.search
-=======
-    <ul id="nav">
-      <li><a href="downtown.html">Downtown</a></li>
-      <li><a href="mlCorp.html">Moria/Louigi Corporation HQ</a></li>
-      <li><a href="hideout.html">Hideout</a></li>
-    </ul>
-
-    <script>
-      // Parse stats from query string
-      const params = new URLSearchParams(location.search);
-      let cr  = +params.get('cr')  || 0;
-      let hp  = +params.get('hp')  || 0;
-      let str = +params.get('str') || 0;
-      let tch = +params.get('tch') || 0;
-
-      // Stats HUD
-      const hud = document.getElementById('hud');
-      function updateHUD(){ hud.textContent = `CR:${cr}  HP:${hp}  STR:${str}  TECH:${tch}`; }
-      updateHUD();
-
-      // Append stats to all nav links
-      function propagate(selector){
-        const qs = `?cr=${cr}&hp=${hp}&str=${str}&tch=${tch}`;
-        document.querySelectorAll(selector).forEach(a=>{
-          const href = a.getAttribute('href') || '';
-          a.setAttribute('href', href + (href.includes('?') ? '&' : '?') + qs.slice(1));
-        });
-      }
-      propagate('#nav a');
->>>>>>> 8b8868bf70891d18d039c81cab3801154d2218df
     </script>
   </body>
 </html>
