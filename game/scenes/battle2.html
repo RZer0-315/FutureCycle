@@ -2,14 +2,41 @@
     <head>
         <title> Future Cycle </title>
         <link rel="icon" href="game/assets/Merlin2525-Futuristic-Gun-3175454871.png">
-        <link rel="stylesheet" href="./game/stylesheets/style.css">
+        <link rel="stylesheet" href="../stylesheets/style.css">
 
         <!-- Text Font -->
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Audiowide&family=Rubik+Glitch&display=swap" rel="stylesheet">
     </head>
-    <body>
-        
+    <body id="battle2" class="battleScreen">
+        <h1> SOLO WAAAAR!!! </h1>
+
+        <div id="battleBox2" class="battleBox">
+            <p>
+                You find a side door but it's locked, but these are smart
+                locks(not very smart). You can try to break in?
+            </p>
+            <button id="hack" onclick='hack()'> HACK!!!!! </button>
+        </div>
+
+        <script>
+
+            var queryString = new URLSearchParams(location.search)
+            var tech =+ queryString.get("tch");
+            
+            function hack(){
+                if (tech >= 12){
+                    battleBox2.innerHTML = `<h3> You got the tech prowess. Now claim your victory!!</h3>
+                    <a href='win2.html'><button>Go into the server room...</button></a>`
+                }
+                else{
+                    battleBox2.innerHTML = `<h3> An alarm goes off. Guards surround you. They take their shot...</h3>
+                    <a href='dead.html'><button>NEXT</button></a>`
+                }
+
+            }
+            
+        </script>
     </body>
 </html>

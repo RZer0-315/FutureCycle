@@ -2,14 +2,43 @@
     <head>
         <title> Future Cycle </title>
         <link rel="icon" href="game/assets/Merlin2525-Futuristic-Gun-3175454871.png">
-        <link rel="stylesheet" href="./game/stylesheets/style.css">
+        <link rel="stylesheet" href="../stylesheets/style.css">
 
         <!-- Text Font -->
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Audiowide&family=Rubik+Glitch&display=swap" rel="stylesheet">
     </head>
-    <body>
-        
+    <body id="battle1" class="battleScreen">
+        <h1> SOLO WAAAAR!!! </h1>
+
+        <div id="battleBox1" class="battleBox">
+            <p>
+                Going directly to your target, you are met with heavy gaurds!
+                Whether you are ready or not, its now or never.
+            </p>
+
+            <button id='Attack' onclick='attack()'> ATTACK!!! </button>
+
+        </div>
+
+        <script>
+
+            var queryString = new URLSearchParams(location.search)
+            var str =+ queryString.get("str");
+            
+            function attack(){
+                if (str >= 12){
+                    battleBox1.innerHTML = `<h3> You have the strength. Now claim your victory!!</h3>
+                    <a href='win1.html'><button>Go into vault...</button></a>`
+                }
+                else{
+                    battleBox1.innerHTML = `<h3> Well... At least you died trying</h3>
+                    <a href='win1.html'><button>NEXT CYCLE</button></a>`
+                }
+
+            }
+            
+        </script>
     </body>
 </html>

@@ -2,14 +2,40 @@
     <head>
         <title> Future Cycle </title>
         <link rel="icon" href="game/assets/Merlin2525-Futuristic-Gun-3175454871.png">
-        <link rel="stylesheet" href="./game/stylesheets/style.css">
+        <link rel="stylesheet" href="../stylesheets/style.css">
 
         <!-- Text Font -->
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Audiowide&family=Rubik+Glitch&display=swap" rel="stylesheet">
     </head>
-    <body>
-        
+    <body id="battle3" class="battleScreen">
+        <h1> SOLO WAAAAR!!! </h1>
+
+        <div id="battleBox3" class="battleBox">
+            <p>
+                You walk in through the main doors into the front lobby.
+                Guards surround you and you take them off with a knowing smile.
+            </p>
+            
+            <button id="operation" onclick="operationCheck()"> Start the operation </button>
+
+        </div>
+
+        <script>
+
+            var queryString = new URLSearchParams(location.search)
+            var str =+ queryString.get("str");
+            var tech =+ queryString.get("tch");
+            var cha =+ queryString.get("cha");
+            function operationCheck(){
+                if (str >=12 && tech >=12 && cha == 12){
+                    battleBox2.innerHTML = `<p> You look to your left at the elevators... BLAM!!! BLAM!!! BLAM!!!
+                        All  the</p>
+                    <a href='win2.html'><button>Go into the server room...</button></a>`
+                }
+            }
+            
+        </script>
     </body>
 </html>

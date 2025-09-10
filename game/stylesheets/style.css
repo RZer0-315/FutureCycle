@@ -47,6 +47,21 @@ img{
     justify-items: center;
 }
 
+.battleScreen{
+    display: grid;
+    justify-items: center;
+}
+
+.battleBox{
+    border: 15px ridge #4dff00 ;
+    width: 600px;
+    height: 300px;
+    padding: 25px;
+    display: grid;
+    justify-items: center;
+
+}
+
 
 /* ID Styles */
 #index{
@@ -64,4 +79,16 @@ img{
 #pickCharacter{
     display: flex;
     justify-content: space-between;
+}
+
+#battle1{
+    background-image: url("../assets/battle1.png ");
+}
+
+#battle2{
+    background-image: url("../assets/battle1.png ");
+}
+
+#battle3{
+    background-image: url("../assets/battle1.png ");
 }
