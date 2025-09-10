@@ -1,26 +1,52 @@
+<!DOCTYPE html>
 <html>
-    <head>
-        <title> Future Cycle </title>
-        <link rel="icon" href="../game/assets/Merlin2525-Futuristic-Gun-3175454871.png">
-        <link rel="stylesheet" href="../stylesheets/style.css">
+  <head>
+    <title>Future Cycle</title>
+    <link rel="icon" href="../game/assets/Merlin2525-Futuristic-Gun-3175454871.png">
+    <link rel="stylesheet" href="../stylesheets/style.css">
+    <style>
+      #hud{position:fixed;top:10px;right:10px;background:#111a;border:1px solid #444;padding:.5rem .75rem;border-radius:.5rem;font-family:monospace}
+      #nav{margin-top:1rem}
+    </style>
+  </head>
+  <body>
+    <h1>Downtown</h1>
+    <div id="hud"></div>
 
-    </head>
-    <body>
-        <h1> Downtown </h1>
+    <hr>
+    <div class="downtown"></div>
+    <img src="/game/assets/cyberpunk_pixelated_cartoon.png" alt="Downtown" width="1000">
+    <p>You've found your way downtown. Choose between the Shop or Plaza!</p>
 
-        <hr>
-       <div class="downtown"></div>
-       <img src="/game/assets/cyberpunk_pixelated_cartoon.png " alt="">
-        <p> You've found your way downtown, now you have a couple options to shop. Choose between the Shop or Plaza!!</p>
-        <h4> Choose your route!!</h4>
-        <div>
-            <a href="shop.html">Enter the Shop</a>
-        </div>
-        <div>
-            <a href="plaza.html">Enter the Plaza</a>
-        </div>
-        <div>
-            <a href="overworld.html">Go Back to Overworld</a>
-        </div>
-    </body>
+    <h4>Choose your route!!</h4>
+    <ul id="nav">
+      <li><a href="shop.html">Enter the Shop</a></li>
+      <li><a href="plaza.html">Enter the Plaza</a></li>
+      <li><a href="overworld.html">Go Back to Overworld</a></li>
+    </ul>
+
+    <script>
+      // Parse stats from query string
+      const params = new URLSearchParams(location.search);
+      let cr  = +params.get('cr')  || 0;
+      let hp  = +params.get('hp')  || 0;
+      let str = +params.get('str') || 0;
+      let tch = +params.get('tch') || 0;
+
+      // Stats HUD
+      const hud = document.getElementById('hud');
+      function updateHUD(){ hud.textContent = `CR:${cr}  HP:${hp}  STR:${str}  TECH:${tch}`; }
+      updateHUD();
+
+      // Propagate stats onto all outgoing links
+      function propagate(selector){
+        const qs = `?cr=${cr}&hp=${hp}&str=${str}&tch=${tch}`;
+        document.querySelectorAll(selector).forEach(a=>{
+          const href = a.getAttribute('href') || '';
+          a.setAttribute('href', href + (href.includes('?') ? '&' : '?') + qs.slice(1));
+        });
+      }
+      propagate('#nav a');
+    </script>
+  </body>
 </html>
