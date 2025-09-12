@@ -7,44 +7,37 @@
   </head>
   <body>
     <h1>Lockbox</h1>
-    <img src="/game/assets/lockbox_inside.png" alt="Shop Interior" width="1000">
-
+  
+  
+    <img src="/game/assets/lockbox_inside.png" alt="Lockbox Interior" width="1000">
+  
     <p>You found a hidden lockbox. It contains <strong>20 CR</strong>.</p>
-    <button id="takeCR">Take the 20 CR</button>
-
+    <button onClick="takeCredits()"id="takeCR">Take the 20 CR</button>
+  
     <p style="margin-top:1rem">
       <a href="hideout.html">Back to Hideout</a>
-    </p>
-
-    <!-- Stats API goes here -->
-    <!-- (Paste the shared Stats API script block from section 0 here) -->
-
+    </p>  
+  
     <script>
-      // One-time claim control
-      const CLAIM_KEY = 'fc_lockbox_claimed';
+      inventory.src += location.search;
+      hideout.href;
 
-      function updateButtonState() {
-        const claimed = localStorage.getItem(CLAIM_KEY) === '1';
-        const btn = document.getElementById('takeCR');
-        btn.disabled = claimed;
-        btn.textContent = claimed ? 'Already Claimed' : 'Take the 20 CR';
-      }
+      var queryString = new URLSearchParams(location.search);
+            var cr = +queryString.get("cr");
+            var hp = +queryString.get("hp");
+            var ap = +queryString.get("ap");
+            var ch = +queryString.get("ch");
 
-      document.getElementById('takeCR').addEventListener('click', () => {
-        const claimed = localStorage.getItem(CLAIM_KEY) === '1';
-        if (claimed) {
-          alert('You already claimed these credits.');
-          return;
-        }
-        const s = getStats();
-        const newCr = (s.cr || 0) + 20;
-        setStats({ ...s, cr: newCr });
-        localStorage.setItem(CLAIM_KEY, '1');
-        updateButtonState();
-        alert(`+20 CR added. You now have ${newCr} CR.`);
-      });
-
-      document.addEventListener('DOMContentLoaded', updateButtonState);
+            
+            function takeCredits(){
+                
+                  queryString.set('cr', cr+20);
+                  location.search = queryString;
+                
+            }
+           
     </script>
+
   </body>
+  
 </html>

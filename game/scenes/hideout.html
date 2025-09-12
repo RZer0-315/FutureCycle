@@ -1,14 +1,40 @@
+<!DOCTYPE html>
 <html>
-    <head>
-        <title> Future Cycle </title>
-        <link rel="icon" href="../assets/Merlin2525-Futuristic-Gun-3175454871.png">
-        <link rel="stylesheet" href="../stylesheets/style.css">
+  <head>
+    <title>Future Cycle</title>
+    <meta charset="utf-8">
+    <link rel="icon" href="../assets/Merlin2525-Futuristic-Gun-3175454871.png">
+    <link rel="stylesheet" href="../stylesheets/style.css">
+    <style>
+      /* Tiny HUD, non-intrusive */
+      #hud{
+        position:fixed;top:10px;right:10px;background:#111a;border:1px solid #444;
+        padding:.5rem .75rem;border-radius:.5rem;font-family:monospace;color:#fff;z-index:10
+      }
+      #nav{ margin-top:1rem; }
+      #nav a{ margin-right:1rem; }
+    </style>
+  </head>
+  <body id="hideout">
+    <!-- HUD for current stats -->
+    <div id="hud"></div>
 
-    </head>
-    <body>
-        <img src="/game/assets/cyberpunkHideout.png" alt="Shop Interior" width="1000">
-        <li><a href="lockbox.html">Lock Box</a></li>
-        <li><a href="overworld.html"> Back To The OverWorld</a></li>
+    <!-- Existing image kept as-is -->
+    <img src="/game/assets/cyberpunkHideout.png" alt="Hideout Interior" width="1000">
 
-    </body>
+    <!-- Simple nav -->
+    <ul id="nav">
+      <li><a id="toLockbox" href="lockbox.html">Lock Box</a></li>
+      <li><a id="backOverworld" href="overworld.html">Back To The OverWorld</a></li>
+    </ul>
+
+    <iframe src="inventory.html" id=inventory height=100 width=125></iframe>
+
+    <!-- Minimal stats helper: merge query-string + localStorage, show HUD, rewrite links -->
+    <script>
+        inventory.src += location.search;
+        overworld.href += location.search;
+        lockbox.href += location.search;
+    </script>
+  </body>
 </html>

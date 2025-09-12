@@ -4,11 +4,7 @@
     <title>Future Cycle</title>
     <link rel="icon" href="../assets/Merlin2525-Futuristic-Gun-3175454871.png">
     <link rel="stylesheet" href="../stylesheets/style.css">
-    <style>
-      #hud{position:fixed;top:10px;right:10px;background:#111a;border:1px solid #444;padding:.5rem .75rem;border-radius:.5rem;font-family:monospace}
-      .items{margin:1rem 0}
-      button{cursor:pointer}
-    </style>
+    
   </head>
   <body>
     <h1>Shop</h1>
@@ -19,7 +15,7 @@
     <p>Welcome to the shop! It's dangerous out there. Choose your weapon wisely.</p>
 
     <div class="items">
-      <button id="buyGun">Buy Gun (+5 Strength)</button>
+      <button onClick="buyGun()"id="buyGun">Buy Gun (+5 Strength)</button>
     </div>
 
     <div>
@@ -27,34 +23,24 @@
     </div>
 
     <script>
-      // Parse stats
-      const params = new URLSearchParams(location.search);
-      let cr  = +params.get('cr')  || 0;
-      let hp  = +params.get('hp')  || 0;
-      let str = +params.get('str') || 0;
-      let tch = +params.get('tch') || 0;
+     inventory.src;
+     downtown.href;
 
-      // HUD
-      const hud = document.getElementById('hud');
-      function updateHUD(){ hud.textContent = `CR:${cr}  HP:${hp}  STR:${str}  TECH:${tch}`; }
-      updateHUD();
+     var queryString = new URLSearchParams(location.search);
+            var cr = +queryString.get("cr");
+            var hp = +queryString.get("hp");
+            var ap = +queryString.get("ap");
+            var ch = +queryString.get("ch");
 
-      // Propagate initial stats to back link
-      function applyParamsToLink(el){
-        const qs = `?cr=${cr}&hp=${hp}&str=${str}&tch=${tch}`;
-        const href = el.getAttribute('href') || '';
-        el.setAttribute('href', href + (href.includes('?') ? '&' : '?') + qs.slice(1));
-      }
-      const back = document.getElementById('backDowntown');
-      applyParamsToLink(back);
-
-      // Buy Gun: increase STR and update link + HUD
-      document.getElementById('buyGun').addEventListener('click', () => {
-        str += 5;
-        updateHUD();
-        applyParamsToLink(back);
-        alert(`Purchased Gun. STR is now ${str}.`);
-      });
+            
+            function buyGun(){
+                if(gp >= 5){
+                    queryString.set('cr', cr-5);
+                    queryString.set('ap', ap+1);
+                    location.search = queryString;
+                }
+            }
+           
     </script>
   </body>
 </html>

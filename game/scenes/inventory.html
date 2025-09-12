@@ -1,0 +1,27 @@
+<html>
+    <head></head>
+    <body>
+        Inventory: <hr>
+        <table>
+            <tr>
+                <th> &#128176; </th>
+                <th> &#128156; </th>
+                <th> &#128481; </th>
+                <th> &#128273; </th>
+            </tr>
+            <tr>
+                <td id='cr'> 0 </td>
+                <td id='hp'> 0 </td>
+                <td id='str'> 0 </td>
+                <td id='ch'> 0 </td>
+            </tr>
+        </table>
+        <script> 
+            var queryString = new URLSearchParams(location.search);
+            cr.innerText = queryString.get("cr");
+            hp.innerText = queryString.get("hp");
+            str.innerText = queryString.get("str");
+            ch.innerText = queryString.get("ch");
+        </script>
+    </body>
+</html>

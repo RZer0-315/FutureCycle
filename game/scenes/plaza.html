@@ -19,7 +19,7 @@
     <p>Get something to increase your overall strength or health!</p>
 
     <div class="items">
-      <button id="buyMedkit">Buy Medkit (+5 HP)</button>
+      <button onClick="buyMedkit()" id="buyMedkit">Buy Medkit (+5 HP)</button>
     </div>
 
     <div>
@@ -27,34 +27,22 @@
     </div>
 
     <script>
-      // Parse stats
-      const params = new URLSearchParams(location.search);
-      let cr  = +params.get('cr')  || 0;
-      let hp  = +params.get('hp')  || 0;
-      let str = +params.get('str') || 0;
-      let tch = +params.get('tch') || 0;
+       inventory.src;
+     downtown.href;
 
-      // HUD
-      const hud = document.getElementById('hud');
-      function updateHUD(){ hud.textContent = `CR:${cr}  HP:${hp}  STR:${str}  TECH:${tch}`; }
-      updateHUD();
+     var queryString = new URLSearchParams(location.search);
+            var cr = +queryString.get("cr");
+            var hp = +queryString.get("hp");
+            var ap = +queryString.get("ap");
+            var ch = +queryString.get("ch");
 
-      // Propagate initial stats to back link
-      function applyParamsToLink(el){
-        const qs = `?cr=${cr}&hp=${hp}&str=${str}&tch=${tch}`;
-        const href = el.getAttribute('href') || '';
-        el.setAttribute('href', href + (href.includes('?') ? '&' : '?') + qs.slice(1));
-      }
-      const back = document.getElementById('backDowntown');
-      applyParamsToLink(back);
-
-      // Buy Medkit: increase HP and update link + HUD
-      document.getElementById('buyMedkit').addEventListener('click', () => {
-        hp += 5;
-        updateHUD();
-        applyParamsToLink(back);
-        alert(`Purchased Medkit. HP is now ${hp}.`);
-      });
+            function buyMedkit(){
+                if(gp > 0){
+                    queryString.set('cr', cr-1);
+                    queryString.set('hp', hp+1);
+                    location.search = queryString;
+                }
+            }
     </script>
   </body>
 </html>
