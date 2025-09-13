@@ -18,7 +18,7 @@
                 Guards surround you and you take them on with a knowing smile.
             </p>
             
-            <button id="operation" onclick="operationCheck()"> Start the operation </button>
+            <button id="operation" onclick="operation()"> Start the operation </button>
 
         </div>
 
@@ -28,11 +28,17 @@
             var str =+ queryString.get("str");
             var tech =+ queryString.get("tch");
             var cha =+ queryString.get("cha");
-            function operationCheck(){
-                if (str >=12 && tech >=12 && cha == 12){
-                    battleBox2.innerHTML = `<p> You look to your left at the elevators... BLAM!!! BLAM!!! BLAM!!!
-                        All  the</p>
-                    <a href='win2.html'><button>Go into the server room...</button></a>`
+
+            function operation(){
+                if (str >=12 && tech >= 12 && cha == 12){
+                    battleBox3.innerHTML = `<p> You look to your left at the elevators... BLAM!!! BLAM!!! BLAM!!!
+                        Many of the gaurds are downed. ZTZTZ!. Lights go out. You sneek into a corner and use nightvision to
+                        see clearly. GOOOOOOOO!!!!</p>
+                        <a href='win2.html'><button> Head to the top... </button></a>`
+                }
+                else{
+                    battleBox3.innerHTML = `<p> What were you expecting you are a regular person. Where did you go wrong.
+                         </p> <a href='death.html'><button> You are not at the right place or time... </button></a> `
                 }
             }
             

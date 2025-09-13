@@ -64,6 +64,7 @@ p{
 }
 
 .battleBox{
+    background-color: rgba(0, 0, 0, 0.5);
     border: 15px ridge #4dff00 ;
     width: 600px;
     height: 300px;
@@ -78,7 +79,7 @@ p{
 #index{
     background-image: url('../assets/wallpaperflare.com_wallpaper.jpg');
     background-repeat: no-repeat;
-    background-size: 2500px 430%;
+    background-size: 2500px 1000px;
 }
 #starter{
     background-image: url("../assets/dumbHacker.gif");
@@ -95,9 +96,9 @@ p{
 }
 
 #battle2{
-    background-image: url("../assets/battle1.png ");
+    background-image: url("../assets/battle2.png ");
 }
 
 #battle3{
-    background-image: url("../assets/battle1.png ");
+    background-image: url("../assets/battle3.png ");
 }
