@@ -12,29 +12,29 @@
     <img src="/game/assets/lockbox_inside.png" alt="Lockbox Interior" width="1000">
   
     <p>You found a hidden lockbox. It contains <strong>20 CR</strong>.</p>
-    <button onClick="takeCredits()"id="takeCR">Take the 20 CR</button>
+    <button id="takeCR" onClick="takeCredits()">Take the 20 CR</button>
   
     <p style="margin-top:1rem">
-      <a href="hideout.html">Back to Hideout</a>
+      <a id="hideout" href="hideout.html">Back to Hideout</a>
     </p>  
   
     <script>
       inventory.src += location.search;
-      hideout.href;
+      hideout.href += location.search;
 
       var queryString = new URLSearchParams(location.search);
-            var cr = +queryString.get("cr");
-            var hp = +queryString.get("hp");
-            var ap = +queryString.get("ap");
-            var ch = +queryString.get("ch");
+      var cr = +queryString.get("cr");
+      var hp = +queryString.get("hp");
+      var ap = +queryString.get("ap");
+      var ch = +queryString.get("ch");
 
-            
-            function takeCredits(){
-                
-                  queryString.set('cr', cr+20);
-                  location.search = queryString;
-                
-            }
+      
+      function takeCredits(){
+          
+            queryString.set('cr', cr+20);
+            location.search = queryString;
+          
+      }
            
     </script>
 
