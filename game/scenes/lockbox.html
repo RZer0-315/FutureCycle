@@ -5,21 +5,19 @@
     <link rel="icon" href="../assets/Merlin2525-Futuristic-Gun-3175454871.png">
     <link rel="stylesheet" href="../stylesheets/style.css">
   </head>
-  <body>
+  <body id="lockbox">
     <h1>Lockbox</h1>
   
   
-    <img src="/game/assets/lockbox_inside.png" alt="Lockbox Interior" width="1000">
-  
-    <p>You found a hidden lockbox. It contains <strong>20 CR</strong>.</p>
-    <button id="takeCR" onClick="takeCredits()">Take the 20 CR</button>
+    <div class="textbox">
+    <p>You found a hidden lockbox. It contains <strong>10 CR</strong>.</p>
   
     <p style="margin-top:1rem">
       <a id="hideout" href="hideout.html">Back to Hideout</a>
     </p>  
   
+    </div>
     <script>
-      inventory.src += location.search;
       hideout.href += location.search;
 
       var queryString = new URLSearchParams(location.search);
@@ -28,14 +26,10 @@
       var ap = +queryString.get("ap");
       var ch = +queryString.get("ch");
 
-      
-      function takeCredits(){
-          
-            queryString.set('cr', cr+20);
-            location.search = queryString;
-          
+      if(cr < 15){
+        queryString.set('cr', cr+10);
+        location.search = queryString;
       }
-           
     </script>
 
   </body>
