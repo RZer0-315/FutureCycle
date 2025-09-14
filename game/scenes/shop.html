@@ -4,43 +4,47 @@
     <title>Future Cycle</title>
     <link rel="icon" href="../assets/Merlin2525-Futuristic-Gun-3175454871.png">
     <link rel="stylesheet" href="../stylesheets/style.css">
-    
-  </head>
-  <body>
-    <h1>Shop</h1>
-    <div id="hud"></div>
 
-    <hr>
-    <img src="/game/assets/cyberpunk_shop_interior.jpg" alt="Shop Interior" width="1000">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Audiowide&family=Rubik+Glitch&display=swap" rel="stylesheet">
+  </head>
+  <body id="shop">
+    <div class="textbox">
+      <h1>Shop</h1>
     <p>Welcome to the shop! It's dangerous out there. Choose your weapon wisely.</p>
 
-    <div class="items">
-      <button onClick="buyGun()"id="buyGun">Buy Gun (+5 Strength)</button>
+    <div id="items">
+      <button id="buyGun" onClick="checkBuyGun()">Buy Gun (12 Strength)</button>
     </div>
 
-    <div>
-      <a id="downtown" href="downtown.html">Go Back to the Downtown area</a>
+    <a id="downtown" href="downtown.html">Go Back to the Downtown area</a></li>
     </div>
 
     <script>
-     inventory.src;
-     downtown.href += location.search;
+      downtown.href += location.search;
 
-     var queryString = new URLSearchParams(location.search);
-            var cr = +queryString.get("cr");
-            var hp = +queryString.get("hp");
-            var ap = +queryString.get("ap");
-            var ch = +queryString.get("ch");
-
-            
-            function buyGun(){
-                if(gp >= 5){
-                    queryString.set('cr', cr-5);
-                    queryString.set('ap', ap+1);
-                    location.search = queryString;
-                }
-            }
-           
+      var queryString = new URLSearchParams(location.search);
+      var cr = +queryString.get("cr");
+      var cha = +queryString.get("cha");
+      var str = +queryString.get("str");
+      var tch = +queryString.get("tch");
+          
+      function checkBuyGun(){
+          if(cr >= 15){
+            queryString.set('cr', cr-12);
+            queryString.set('str', 12);
+            location.search = queryString;
+            items.innerhtml =`<div class="textbox">
+              <p>You bought my only gun. Now get out of here.</p>
+              </div>`
+          }
+          else{
+            items.innerhtml =`<div class="textbox">
+              <p>Not enough credits</p>
+              </div>`
+          }
+      }    
     </script>
   </body>
 </html>
