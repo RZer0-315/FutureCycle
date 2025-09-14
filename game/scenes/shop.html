@@ -10,16 +10,17 @@
     <link href="https://fonts.googleapis.com/css2?family=Audiowide&family=Rubik+Glitch&display=swap" rel="stylesheet">
   </head>
   <body id="shop">
-    <div class="textbox">
-      <h1>Shop</h1>
-    <p>Welcome to the shop! It's dangerous out there. Choose your weapon wisely.</p>
+    <h1>Shop</h1>
+    <div id="shopbox" class="textbox">
 
-    <div id="items">
+      <p>Welcome to the shop! It's dangerous out there. Choose your weapon wisely.</p>
+
       <button id="buyGun" onClick="checkBuyGun()">Buy Gun (12 Strength)</button>
-    </div>
 
-    <a id="downtown" href="downtown.html">Go Back to the Downtown area</a></li>
     </div>
+    <a id="downtown" href="downtown.html">Go Back to the Downtown area</a></li>
+
+    
 
     <script>
       downtown.href += location.search;
@@ -34,15 +35,10 @@
           if(cr >= 15){
             queryString.set('cr', cr-12);
             queryString.set('str', 12);
-            location.search = queryString;
-            items.innerhtml =`<div class="textbox">
-              <p>You bought my only gun. Now get out of here.</p>
-              </div>`
+            downtown.href += queryString;
           }
           else{
-            items.innerhtml =`<div class="textbox">
-              <p>Not enough credits</p>
-              </div>`
+            shopbox.innerHTML =`<p>You do not have enough credits to buy a weapon. SCRAM!!!</p>`;
           }
       }    
     </script>
