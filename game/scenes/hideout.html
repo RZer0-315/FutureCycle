@@ -5,34 +5,20 @@
     <meta charset="utf-8">
     <link rel="icon" href="../assets/Merlin2525-Futuristic-Gun-3175454871.png">
     <link rel="stylesheet" href="../stylesheets/style.css">
-    <style>
-      /* Tiny HUD, non-intrusive */
-      #hud{
-        position:fixed;top:10px;right:10px;background:#111a;border:1px solid #444;
-        padding:.5rem .75rem;border-radius:.5rem;font-family:monospace;color:#fff;z-index:10
-      }
-      #nav{ margin-top:1rem; }
-      #nav a{ margin-right:1rem; }
-    </style>
+    <!-- Text Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Audiowide&family=Rubik+Glitch&display=swap" rel="stylesheet">
   </head>
   <body id="hideout">
-    <!-- HUD for current stats -->
-    <div id="hud"></div>
-
-    <!-- Existing image kept as-is -->
-    <img src="/game/assets/cyberpunkHideout.png" alt="Hideout Interior" width="1000">
-
     <!-- Simple nav -->
     <ul id="nav">
       <li><a id="lockbox" href="lockbox.html">Lock Box</a></li>
       <li><a id="overworld" href="overworld.html">Back To The OverWorld</a></li>
     </ul>
 
-    <iframe src="inventory.html" id=inventory height=100 width=125></iframe>
-
     <!-- Minimal stats helper: merge query-string + localStorage, show HUD, rewrite links -->
     <script>
-        inventory.src += location.search;
         overworld.href += location.search;
         lockbox.href += location.search;
     </script>
