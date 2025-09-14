@@ -33,6 +33,11 @@ p{
     margin-bottom: 30px;
 }
 
+a{
+    background-color: rgba(0, 0, 0, 0.75);
+    
+}
+
 
 
 /* Class Styles */
@@ -46,6 +51,7 @@ p{
     display: grid;
     justify-items:center;
     justify-content: space-between;
+    margin-bottom: 10px;
     
 }
 
@@ -105,4 +111,7 @@ p{
 
 #shop{
     background-image: url("../assets/cyberpunk_shop_interior.jpg");
+}
+#plaza{
+    background-image: url("../assets/cyberpunk_plaza.png");
 }

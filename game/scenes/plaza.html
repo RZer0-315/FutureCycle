@@ -4,43 +4,48 @@
     <title>Future Cycle</title>
     <link rel="icon" href="../assets/Merlin2525-Futuristic-Gun-3175454871.png">
     <link rel="stylesheet" href="../stylesheets/style.css">
-    <style>
-      #hud{position:fixed;top:10px;right:10px;background:#111a;border:1px solid #444;padding:.5rem .75rem;border-radius:.5rem;font-family:monospace}
-      .items{margin:1rem 0}
-      button{cursor:pointer}
-    </style>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Audiowide&family=Rubik+Glitch&display=swap" rel="stylesheet">
+  
   </head>
-  <body>
+  <body id="plaza">
     <h1>Plaza</h1>
-    <div id="hud"></div>
+    <div id="plazaBox" class="textbox">
+    <p>You see an old lady sitting on a bench. Do you talk to her?</p>
 
-    <hr>
-    <img src="/game/assets/cyberpunk_plaza.png" alt="CyberPlaza" width="1000">
-    <p>Get something to increase your overall strength or health!</p>
-
-    <div class="items">
-      <button onClick="buyMedkit()" id="buyMedkit">Buy Medkit (+5 HP)</button>
+      <button id="checkChar" onClick="checkChar()">Make Conversation</button>
     </div>
 
     <div>
-      <a id="Downtown" href="downtown.html">Go Back to the Downtown area</a>
+      <a id="downtown" href="downtown.html">Go Back to the Downtown area</a>
     </div>
 
     <script>
-      inventory.src;
       downtown.href += location.search;
 
-     var queryString = new URLSearchParams(location.search);
-            var cr = +queryString.get("cr");
-            var hp = +queryString.get("hp");
-            var ap = +queryString.get("ap");
-            var ch = +queryString.get("ch");
+      var queryString = new URLSearchParams(location.search);
+      var cr = +queryString.get("cr");
+      var cha = +queryString.get("cha");
+      var str = +queryString.get("str");
+      var tch = +queryString.get("tch");
+      var item =+ queryString.get('item');
 
-            function buyMedkit(){
-                if(gp > 0){
-                    queryString.set('cr', cr-1);
-                    queryString.set('hp', hp+1);
-                    location.search = queryString;
+      if(item == 1){
+        plazaBox.innerHTML = `<p>You sit down and have a lovely conversation with the old lady. Before leaving
+          she puts something into your hand. It's the hacker tool.</p>`
+      }
+
+            function checkChar(){
+                if(cha >= 12){
+                  queryString.set('tch', 12);
+                  queryString.set('item', 1);
+                  location.search = queryString;
+                }
+                else{
+                  plazaBox.innerHTML = `<p>She gets up and walks away before you get a chance to speak.
+                    Maybe if you had better charisma you could talk with her.</p>`;
                 }
             }
     </script>
