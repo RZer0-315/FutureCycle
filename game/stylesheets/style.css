@@ -127,3 +127,12 @@ a{
 #mlcorp{
     background-image: url("../assets/MHCorp.png");
 }
+#victory1{
+    background-image: url("../assets/win1.png");
+}
+#victory2{
+    background-image: url("../assets/win2.png");
+}
+#victory3{
+    background-image: url("../assets/win3.png");
+}
