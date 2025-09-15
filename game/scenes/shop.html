@@ -33,9 +33,9 @@
           
       function checkBuyGun(){
           if(cr >= 15){
-            queryString.set('cr', cr-12);
+            queryString.set('cr', cr-15);
             queryString.set('str', 12);
-            downtown.href += queryString;
+            location.search = queryString;
           }
           else{
             shopbox.innerHTML =`<p>You do not have enough credits to buy a weapon. SCRAM!!!</p>`;

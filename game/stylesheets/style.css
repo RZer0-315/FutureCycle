@@ -121,3 +121,9 @@ a{
 #hideout{
     background-image: url("../assets/cyberpunkHideout.png");
 }
+#lockbox{
+    background-image: url("../assets/lockbox_inside.png");
+}
+#mlcorp{
+    background-image: url("../assets/MHCorp.png");
+}
